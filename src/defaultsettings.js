@@ -6,6 +6,7 @@ module.exports = {
 	dictionary: [],
 	maxWords: 20,
 	backwardsProbability: 0.3,
+	alphabet: "abcdefghijklmnopqrstuvwxyz",
 	upperCase: true,
 	diacritics: false,
 	forbiddenWords: [],

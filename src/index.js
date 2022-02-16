@@ -56,7 +56,7 @@ class WordSearch {
 			}
 		});
 		addedWords.sort((a, b) => (a.clean > b.clean ? 1 : -1));
-		grid = utils.fillGrid(grid, this.settings.upperCase);
+		grid = utils.fillGrid(grid, this.settings.upperCase, this.settings.alphabet);
 
 		if (this.cleanForbiddenWords.length) {
 			const forbiddenWordsFound = utils.filterWordsInGrid(this.cleanForbiddenWords, grid);

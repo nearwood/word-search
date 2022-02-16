@@ -37,6 +37,7 @@ const options = {
   dictionary: ["Hello", "crêpe", "Škoda", "word", "search"],
   maxWords: 20,
   backwardsProbability: 0.3,
+  alphabet: "abcdefghijklmnopqrstuvwxyz",
   upperCase: true,
   diacritics: true
 };
@@ -66,6 +67,7 @@ Here are the options you can pass when creating a new puzzle:
 | dictionary           | Array.String | `[]`    | Words to insert in the grid (some of them may not be inserted if they're too long, cannot be placed, or if maxWords is exceeded)         |
 | maxWords             | Integer      | `20`    | Maximum number of words to insert                                                                                                        |
 | backwardsProbability | Float        | `0.3`   | Probability to have each word written backwards (it's a probability, not a strict percentage)                                            |
+| alphabet             | String       | `abc...`| The alphabet to use for the                                                                                                              |
 | upperCase            | Boolean      | `true`  | Whether the letters in the grid should be uppercase                                                                                      |
 | diacritics           | Boolean      | `false` | Whether the letters in the grid should keep their diacritics (accents)                                                                   |
 | forbiddenWords       | Array.String | `[]`    | Words which should not appear accidentally in the final grid, in any direction (e.g. profanity). Will try rebuilding it for `maxRetries` |

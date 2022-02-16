@@ -102,23 +102,23 @@ const getWordStartBoundaries = (wordLength, direction, cols, rows) => {
 		let props;
 		// We get the props to update
 		switch (d) {
-		case "N":
-			props = { minY: wordLength - 1, maxY: rows - 1 };
-			break;
-		case "S":
-			props = { minY: 0, maxY: rows - wordLength };
-			break;
-		case "E":
-			props = { minX: 0, maxX: cols - wordLength };
-			break;
-		case "W":
-			props = { minX: wordLength - 1, maxX: cols - 1 };
-			break;
-		default:
-			// If the direction is unknown,
-			// it's a bad input
-			badInput = true;
-			props = {};
+			case "N":
+				props = { minY: wordLength - 1, maxY: rows - 1 };
+				break;
+			case "S":
+				props = { minY: 0, maxY: rows - wordLength };
+				break;
+			case "E":
+				props = { minX: 0, maxX: cols - wordLength };
+				break;
+			case "W":
+				props = { minX: wordLength - 1, maxX: cols - 1 };
+				break;
+			default:
+				// If the direction is unknown,
+				// it's a bad input
+				badInput = true;
+				props = {};
 		}
 		// And we merge them to the result
 		Object.assign(res, props);
@@ -128,7 +128,7 @@ const getWordStartBoundaries = (wordLength, direction, cols, rows) => {
 	// it's a bad input
 	if (
 		[res.minX, res.maxX].some(v => !_inRange(v, 0, cols + 1)) ||
-    [res.minY, res.maxY].some(v => !_inRange(v, 0, rows + 1))
+		[res.minY, res.maxY].some(v => !_inRange(v, 0, rows + 1))
 	) {
 		badInput = true;
 	}
@@ -155,11 +155,11 @@ const normalizeWord = (word, upperCase = true, keepDiacritics = false) => {
  * Returns a random letter, uppercase or lowercase.
  * @kind function
  * @name getRandomLetter
- * @param {Boolean} upperCase - Whether to return an uppercase letter
+ * @param {String} alpabet - The alphabet to use
+ * @param {Boolean} upperCase - Whether to return an uppercase letter (default true)
  * @returns {String} - A random letter
  */
-const getRandomLetter = upperCase => {
-	let alphabet = "abcdefghijklmnopqrstuvwxyz";
+const getRandomLetter = (alphabet, upperCase = true) => {
 	if (upperCase) {
 		alphabet = alphabet.toUpperCase();
 	}
@@ -208,11 +208,12 @@ const createGrid = (cols, rows) => {
  * @name fillGrid
  * @param {Array} grid - Grid to fill
  * @param {Boolean} upperCase - Whether to fill the grid with uppercase letters
+ * @param {String} alphabet - The alphabet characters to use
  * @returns {Array} - A new grid
  */
-const fillGrid = (grid, upperCase) => {
+const fillGrid = (grid, upperCase, alphabet) => {
 	return grid.map(row =>
-		row.map(cell => (cell === "." ? getRandomLetter(upperCase) : cell))
+		row.map(cell => (cell === "." ? getRandomLetter(alphabet, upperCase) : cell))
 	);
 };
 

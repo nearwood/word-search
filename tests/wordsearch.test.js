@@ -22,6 +22,7 @@ describe("WordSearch", () => {
 			dictionary: ["Hello", "world"],
 			maxWords: 4,
 			backwardsProbability: 0.3,
+			alphabet: "abcdefghijklmnopqrstuvwxyz",
 			upperCase: true,
 			diacritics: false,
 			forbiddenWords: [],
