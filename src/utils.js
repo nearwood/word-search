@@ -102,23 +102,23 @@ const getWordStartBoundaries = (wordLength, direction, cols, rows) => {
 		let props;
 		// We get the props to update
 		switch (d) {
-			case "N":
-				props = { minY: wordLength - 1, maxY: rows - 1 };
-				break;
-			case "S":
-				props = { minY: 0, maxY: rows - wordLength };
-				break;
-			case "E":
-				props = { minX: 0, maxX: cols - wordLength };
-				break;
-			case "W":
-				props = { minX: wordLength - 1, maxX: cols - 1 };
-				break;
-			default:
-				// If the direction is unknown,
-				// it's a bad input
-				badInput = true;
-				props = {};
+		case "N":
+			props = { minY: wordLength - 1, maxY: rows - 1 };
+			break;
+		case "S":
+			props = { minY: 0, maxY: rows - wordLength };
+			break;
+		case "E":
+			props = { minX: 0, maxX: cols - wordLength };
+			break;
+		case "W":
+			props = { minX: wordLength - 1, maxX: cols - 1 };
+			break;
+		default:
+			// If the direction is unknown,
+			// it's a bad input
+			badInput = true;
+			props = {};
 		}
 		// And we merge them to the result
 		Object.assign(res, props);

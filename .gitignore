@@ -18,7 +18,8 @@ lib-cov
 coverage
 
 # Dist folder
-dist
+# dist
+
 # Doc generated
 docs
 
